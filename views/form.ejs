@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <h3>Documentos</h3>
+    <form action="/gravar" method='POST'>
+    <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+    <br>
+    <input type="text" name="cargo" id="cargo" placeholder="Digite seu nome">
+    <br>
+    <textarea name="mensagem" id="mensagem" cols="30" rows="10">Digite sua mensagem</textarea>
+    <br>
+    <input type="submit" value="Gravar">
+    
+    </form>
+    <table border="1">
+        <tr>
+            <th>Nome:</th>
+            <th>Cargo:</th>
+            <th>Mensagem:</th>
+            <th>Açoes:</th>
+        </tr>
+
+        <% for(var n=0; n<documentos.length; n++){ %>
+            <tr>
+                <td><%=documentos[n].nome%></td>
+                <td><%=documentos[n].cargo%></td>
+                <td><%=documentos[n].mensagem%></td> 
+                <td><a href="/excluir?id=<%=documentos[n].id%>">Excluir</a></td>        
+            </tr>
+        <% } %>
+    </table>
+    
+</body>
+</html>
